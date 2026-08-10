@@ -656,7 +656,7 @@ body::before {
 .steps p { color: var(--muted); margin: 0; font-size: 14.5px; }
 @media (max-width: 800px) { .steps { grid-template-columns: 1fr; } }
 
-/* ============ CTA / WAITLIST ============ */
+/* ============ CTA / DOWNLOAD ============ */
 .cta {
   position: relative; z-index: 4;
   padding: 100px clamp(20px, 4vw, 48px);
@@ -689,38 +689,30 @@ body::before {
   max-width: 540px; margin: 0 auto 28px;
   font-size: 16px;
 }
-.cta__form {
-  display: flex; gap: 8px;
-  max-width: 460px; margin: 0 auto;
-  background: rgba(0,0,0,.45);
-  border: 1px solid var(--line-2);
-  border-radius: 999px;
-  padding: 6px;
-}
-.cta__form input {
-  flex: 1; background: transparent; border: 0; outline: 0;
-  color: var(--text);
-  font-family: var(--font-body);
-  padding: 0 16px;
-  font-size: 14.5px;
-}
-.cta__form input::placeholder { color: var(--dim); }
-.cta__form.done input { opacity: .5; }
 .cta__appstore {
-  margin-top: 28px;
   display: flex; justify-content: center;
 }
-.appstore-mock {
+/* Real App Store link. Reads as a badge rather than a button so it doesn't
+   compete with the primary buttons elsewhere on the page, but it still lifts
+   on hover to signal it's clickable. */
+.appstore-badge {
   display: inline-flex; align-items: center; gap: 12px;
-  padding: 12px 22px;
+  padding: 12px 26px;
   border-radius: 14px;
-  background: rgba(255,255,255,.04);
+  background: rgba(255,255,255,.06);
   border: 1px solid var(--line-2);
   color: var(--muted);
   font-family: var(--font-display);
+  text-decoration: none;
+  transition: transform .25s ease, background .25s ease, border-color .25s ease;
 }
-.appstore-mock__small { font-size: 11px; letter-spacing: .12em; }
-.appstore-mock__big { color: var(--text); font-size: 18px; font-weight: 600; }
+.appstore-badge:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,.10);
+  border-color: rgba(255,255,255,.24);
+}
+.appstore-badge__small { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; }
+.appstore-badge__big { color: var(--text); font-size: 19px; font-weight: 600; line-height: 1.15; }
 
 /* sprinkled planets in cta — each one drifts on its own irregular path
    so the box feels alive instead of bobbing in unison.
